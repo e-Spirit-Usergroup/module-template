@@ -65,14 +65,14 @@ public class To_be_renamedUrlFactory implements UrlFactory {
   @Override
   public void init(@NotNull final Map<String, String> settings, @NotNull final PathLookup pathLookup) {
     _pathLookup = pathLookup;
-    final String useWelcomFilenames = settings.get(USEWELCOMEFILENAMES);
-    if (booleanValue(useWelcomFilenames, true)) {
+    final String useWelcomeFilenames = settings.get(USEWELCOMEFILENAMES);
+    if (booleanValue(useWelcomeFilenames, true)) {
       _welcomeFileMode = WelcomeFileMode.FOR_FIRST_HTML_CHANNEL;
-    } else if ("all".equalsIgnoreCase(useWelcomFilenames)) {
+    } else if ("all".equalsIgnoreCase(useWelcomeFilenames)) {
       _welcomeFileMode = WelcomeFileMode.FOR_ALL_HTML_CHANNELS;
-    } else if (!falseOrUnset(useWelcomFilenames)) {
+    } else if (!falseOrUnset(useWelcomeFilenames)) {
       _welcomeFileMode = WelcomeFileMode.FOR_SELECTED_CHANNELS;
-      _channelsWithWelcomeFiles = getChannelsWithWelcomeFiles(useWelcomFilenames);
+      _channelsWithWelcomeFiles = getChannelsWithWelcomeFiles(useWelcomeFilenames);
     } else {
       _welcomeFileMode = WelcomeFileMode.DISABLED;
     }
